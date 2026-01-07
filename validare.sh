@@ -5,7 +5,7 @@ cat "/etc/hosts" | while IFS= read -r linie; do
         continue
     fi
     read -r adresa domeniu _ <<< "$linie"
-    adresa_corecta=$(nslookup "$domeniu" 8.8.8.8 | awk '/Adress: / {print $2; exit}')
+    adresa_corecta=$(nslookup "$domeniu" 8.8.8.8 | awk '/Address: / {print $2; exit}')
     if [[ -z "$adresa_corecta" ]]; then
         continue
     fi
